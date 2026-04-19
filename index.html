@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bowen Xiang — Postdoctoral Researcher, Vanderbilt University</title>
+<meta name="description" content="Bowen Xiang, Ph.D. — Postdoctoral Researcher at Vanderbilt University. Mixed reality surgical navigation, image-guided surgery, and AR systems for precision liver surgery." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper:      #F2EDE2;
+    --paper-2:    #EBE4D5;
+    --ink:        #15130C;
+    --ink-soft:   #2A2619;
+    --muted:      #7D7560;
+    --rule:       #D6CEBC;
+    --accent:     #9B2C20;
+    --accent-ink: #6E1E15;
+    --highlight:  #E7DFC9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    font-feature-settings: "ss01", "onum";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0 0.05  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* ——— Typographic primitives ——— */
+  .display {
+    font-family: 'Instrument Serif', 'Newsreader', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .display-italic { font-style: italic; }
+
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a.inline {
+    background-image: linear-gradient(var(--ink), var(--ink));
+    background-size: 100% 1px;
+    background-position: 0 95%;
+    background-repeat: no-repeat;
+    transition: background-size .3s ease;
+  }
+  a.inline:hover {
+    background-size: 100% 2px;
+    color: var(--accent);
+    background-image: linear-gradient(var(--accent), var(--accent));
+  }
+
+  /* ——— Layout shell ——— */
+  .shell {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 44px;
+    position: relative;
+  }
+
+  /* ——— Top nav ——— */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.top .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 44px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  nav.top .logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+  }
+  nav.top .logo em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  nav.top ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+  nav.top ul a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    position: relative;
+    padding: 4px 0;
+  }
+  nav.top ul a::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: -2px;
+    height: 1px;
+    background: var(--accent);
+    transition: right .3s ease;
+  }
+  nav.top ul a:hover { color: var(--accent); }
+  nav.top ul a:hover::after { right: 0; }
+
+  nav.top .right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    padding: 6px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink-soft);
+    transition: border-color .2s, color .2s;
+  }
+  .lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .lang-toggle .active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .lang-toggle .sep { opacity: 0.4; }
+
+  @media (max-width: 820px) {
+    nav.top ul { display: none; }
+    nav.top .row { padding: 16px 22px; }
+  }
+
+  /* ——— HERO ——— */
+  .hero {
+    padding: 80px 0 100px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .hero .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+    50%      { box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 8%,  transparent); }
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(3.4rem, 8.2vw, 7.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero .lede {
+    font-size: 1.22rem;
+    line-height: 1.45;
+    max-width: 40ch;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+  .hero .lede b { font-weight: 600; color: var(--ink); }
+
+  .meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 22px;
+    padding-top: 26px;
+    border-top: 1px solid var(--rule);
+    max-width: 520px;
+  }
+  .meta dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .meta dd {
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    width: 100%;
+  }
+  .hero-visual .card {
+    position: absolute;
+    inset: 0;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,0.18), 0 2px 0 var(--paper-2) inset;
+  }
+  .hero-visual svg { width: 100%; height: 100%; display: block; }
+  .hero-visual .label {
+    position: absolute;
+    top: 14px; left: 16px;
+    color: var(--muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+  }
+  .hero-visual .label-r {
+    position: absolute;
+    top: 14px; right: 16px;
+    color: var(--accent);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+  }
+  .hero-visual .caption {
+    position: absolute;
+    bottom: 14px; left: 16px; right: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  @media (max-width: 900px) {
+    .hero .grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero-visual { aspect-ratio: 1 / 0.8; max-width: 520px; }
+    .hero { padding: 56px 0 72px; }
+  }
+  @media (max-width: 720px) {
+    .shell { padding: 0 22px; }
+    .hero .lede { font-size: 1.08rem; }
+  }
+
+  /* ——— Section scaffold ——— */
+  section.s {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  section.s .head {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    margin-bottom: 56px;
+    align-items: baseline;
+  }
+  section.s .head .num {
+    color: var(--muted);
+    border-top: 2px solid var(--ink);
+    padding-top: 8px;
+  }
+  section.s .head h2 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  section.s .head h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    section.s { padding: 64px 0; }
+    section.s .head {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+  }
+
+  /* ——— About / Focus ——— */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+  }
+  .about-grid p {
+    font-size: 1.12rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    max-width: 54ch;
+  }
+  .about-grid p:first-letter {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 2.4em;
+    float: left;
+    line-height: 0.9;
+    padding: 4px 8px 0 0;
+    color: var(--accent);
+  }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pillar {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pillar:first-child { border-top: 1px solid var(--rule); }
+  .pillar .n {
+    color: var(--accent);
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .pillar h3 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .pillar p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  /* ——— Publications ——— */
+  .pub-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pub-tabs button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    margin-bottom: -1px;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  .pub-tabs button.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .pub-tabs button:hover { color: var(--ink); }
+  .pub-tabs .count {
+    margin-left: 6px;
+    opacity: 0.6;
+    font-size: 0.65rem;
+  }
+
+  .pub-list {
+    list-style: none;
+  }
+  .pub {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+    transition: background .25s ease;
+  }
+  .pub:hover { background: var(--paper-2); }
+  .pub:last-child { border-bottom: 1px solid var(--rule); }
+  .pub .pn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    padding-top: 6px;
+    letter-spacing: 0.1em;
+  }
+  .pub .body .title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .pub .body .title a { transition: color .2s; }
+  .pub .body .title a:hover { color: var(--accent); }
+  .pub .body .authors {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .pub .body .authors .me {
+    background: var(--highlight);
+    padding: 1px 4px;
+    font-weight: 600;
+    color: var(--accent-ink);
+    font-style: italic;
+  }
+  .pub .body .venue {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .pub .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .pub .tag.under    { border-color: var(--accent); color: var(--accent); }
+  .pub .tag.journal  { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .pub .tag.conf     { background: var(--paper-2); }
+  .pub .tag.patent   { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+  .pub.hidden { display: none; }
+
+  @media (max-width: 720px) {
+    .pub {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .pub .pn { padding-top: 0; }
+    .pub .tag { justify-self: start; }
+  }
+
+  /* ——— Timeline / Experience ——— */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    padding: 30px 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .tl-item:last-child { border-bottom: 1px solid var(--rule); }
+  .tl-item .when {
+    color: var(--muted);
+  }
+  .tl-item .when strong {
+    display: block;
+    color: var(--ink);
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .tl-item h3 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .tl-item h3 em { color: var(--accent); font-style: italic; }
+  .tl-item .where {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+  .tl-item ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .tl-item ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .tl-item ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 10px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    .tl-item { grid-template-columns: 1fr; gap: 8px; }
+    .tl-item .when { display: flex; align-items: baseline; gap: 10px; }
+    .tl-item .when strong { font-size: 1.1rem; }
+  }
+
+  /* ——— Two-column compact ——— */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .two-col h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .two-col ul {
+    list-style: none;
+  }
+  .two-col ul li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .two-col ul li:last-child { border-bottom: none; }
+  .two-col .lbl {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+  .two-col .sub {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-top: 3px;
+  }
+  .two-col .yr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; gap: 52px; }
+  }
+
+  /* ——— Contact footer ——— */
+  footer.site {
+    padding: 100px 0 60px;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+  }
+  footer.site .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  footer.site h2 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+  }
+  footer.site h2 em {
+    color: #E8A89C;
+    font-style: italic;
+  }
+  footer.site .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  footer.site .contact-links a {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(242,237,226,0.15);
+    transition: padding .25s ease, border-color .2s;
+  }
+  footer.site .contact-links a:hover {
+    padding-left: 10px;
+    border-bottom-color: var(--paper);
+  }
+  footer.site .contact-links .lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    min-width: 60px;
+  }
+  footer.site .contact-links .val {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.25rem;
+  }
+  footer.site .colophon {
+    margin-top: 80px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(242,237,226,0.15);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(242,237,226,0.5);
+  }
+
+  @media (max-width: 720px) {
+    footer.site .grid { grid-template-columns: 1fr; gap: 32px; }
+    footer.site .colophon { flex-direction: column; gap: 10px; }
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero .eyebrow .dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a href="#top" class="logo">Bowen <em>Xiang</em></a>
+    <div class="right">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="zh.html" class="lang-toggle" title="切换到中文">
+        <span class="active">EN</span><span class="sep">·</span><span>中</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ——— HERO ——— -->
+  <section class="hero">
+    <div class="shell">
+      <div class="grid">
+        <div class="reveal">
+          <div class="eyebrow mono">
+            <span class="dot"></span>
+            <span>Postdoctoral Researcher · Vanderbilt University</span>
+          </div>
+
+          <h1 class="display">
+            Bowen<br />
+            <em>Xiang,</em> Ph.D.
+          </h1>
+
+          <p class="lede">
+            I build <b>mixed-reality surgical navigation systems</b> that help
+            surgeons see what lies beneath — holographic guidance for
+            image-guided interventions, with a focus on <em>precision liver
+            surgery</em>.
+          </p>
+
+          <dl class="meta">
+            <dt class="mono">Field</dt>
+            <dd>Image-Guided Surgery · Mixed Reality · 3D Vision</dd>
+
+            <dt class="mono">Lab</dt>
+            <dd>Biomedical Modeling Laboratory · PI: Dr. Michael I. Miga</dd>
+
+            <dt class="mono">Based</dt>
+            <dd>Nashville, Tennessee</dd>
+
+            <dt class="mono">Elsewhere</dt>
+            <dd>
+              <a class="inline" href="mailto:bowen.xiang@vanderbilt.edu">Email</a> ·
+              <a class="inline" href="https://www.linkedin.com/in/bowen-xiang/" target="_blank" rel="noopener">LinkedIn</a> ·
+              <a class="inline" href="https://scholar.google.com/" target="_blank" rel="noopener">Scholar</a>
+            </dd>
+          </dl>
+        </div>
+
+        <!-- Abstract visual: stylized point cloud + AR reticle -->
+        <div class="hero-visual reveal" style="transition-delay:.2s;">
+          <div class="card">
+            <div class="label mono">FIG. 01 · SURFACE ACQUISITION</div>
+            <div class="label-r mono">ML2 · LIVE</div>
+
+            <svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="organ" cx="50%" cy="48%" r="50%">
+                  <stop offset="0%"   stop-color="#9B2C20" stop-opacity="0.14" />
+                  <stop offset="60%"  stop-color="#9B2C20" stop-opacity="0.04" />
+                  <stop offset="100%" stop-color="#9B2C20" stop-opacity="0" />
+                </radialGradient>
+                <pattern id="graph" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#D6CEBC" stroke-width="0.5" />
+                </pattern>
+              </defs>
+
+              <!-- graph paper -->
+              <rect width="400" height="420" fill="url(#graph)" opacity="0.8" />
+
+              <!-- soft organ silhouette -->
+              <ellipse cx="200" cy="210" rx="130" ry="90" fill="url(#organ)" />
+
+              <!-- point cloud (stylized) -->
+              <g id="cloud" fill="#15130C">
+                <!-- generated dots arranged in a liver-ish cluster -->
+              </g>
+
+              <!-- AR reticle -->
+              <g stroke="#9B2C20" stroke-width="1.2" fill="none">
+                <circle cx="200" cy="210" r="42" stroke-dasharray="3 4" opacity="0.9">
+                  <animateTransform attributeName="transform" type="rotate"
+                    from="0 200 210" to="360 200 210" dur="28s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="200" cy="210" r="4" fill="#9B2C20" />
+                <line x1="200" y1="150" x2="200" y2="178" />
+                <line x1="200" y1="242" x2="200" y2="270" />
+                <line x1="140" y1="210" x2="168" y2="210" />
+                <line x1="232" y1="210" x2="260" y2="210" />
+              </g>
+
+              <!-- crosshair brackets top-left -->
+              <g stroke="#15130C" stroke-width="1" fill="none">
+                <path d="M 40 62 L 40 48 L 54 48" />
+                <path d="M 360 62 L 360 48 L 346 48" />
+                <path d="M 40 358 L 40 372 L 54 372" />
+                <path d="M 360 358 L 360 372 L 346 372" />
+              </g>
+
+              <!-- probe indicator -->
+              <g>
+                <line x1="305" y1="115" x2="235" y2="185" stroke="#15130C" stroke-width="1.6" />
+                <circle cx="305" cy="115" r="5" fill="#15130C" />
+                <text x="310" y="108" font-family="JetBrains Mono, monospace" font-size="8"
+                      fill="#15130C" letter-spacing="1">TRACKED TOOL</text>
+              </g>
+
+              <!-- target annotation -->
+              <text x="204" y="274" font-family="JetBrains Mono, monospace" font-size="8"
+                    fill="#9B2C20" letter-spacing="1">ROI · 00.4 MM</text>
+
+              <!-- axis -->
+              <g stroke="#7D7560" stroke-width="0.75" fill="#7D7560"
+                 font-family="JetBrains Mono, monospace" font-size="7">
+                <line x1="42" y1="390" x2="100" y2="390" />
+                <polygon points="100,388 106,390 100,392" />
+                <text x="42" y="404">X</text>
+                <line x1="42" y1="390" x2="42" y2="346" />
+                <polygon points="40,346 42,340 44,346" />
+                <text x="30" y="344">Z</text>
+              </g>
+            </svg>
+
+            <div class="caption">
+              <span>N = 64,128 PTS</span>
+              <span>Δ 33 MS · 30 FPS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— ABOUT / RESEARCH ——— -->
+  <section class="s" id="research">
+    <div class="shell">
+      <div class="head reveal">
+        <div class="num mono">§ 01 &nbsp;· &nbsp;Research</div>
+        <h2 class="display">On seeing <em>inside</em> the body.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="reveal">
+          <p>
+            My research develops <a class="inline" href="#publications">mixed-reality
+            surgical navigation</a> — augmented-reality systems that overlay
+            patient-specific anatomy directly onto the surgical field. Working
+            at the intersection of 3D computer vision, biomechanics, and
+            head-mounted display hardware, I design end-to-end systems that
+            track instruments, compensate for organ deformation, and present
+            stable holographic guidance to the surgeon in real time.
+          </p>
+          <p>
+            The central question I pursue: <em>how do we make the digital
+            anatomical model trustworthy enough to act on in the operating
+            room?</em> That means quantifying hologram stability, depth
+            sensing accuracy, eye tracking precision, and subsurface target
+            localization — and engineering the pipeline so every number
+            earns the clinic's trust.
+          </p>
+        </div>
+
+        <div class="pillars reveal" style="transition-delay:.15s;">
+          <div class="pillar">
+            <div class="n display-italic">i.</div>
+            <div>
+              <h3>Mixed-Reality Surgical Navigation</h3>
+              <p>Self-contained AR guidance systems on HoloLens 2 and Magic Leap 2 for laparoscopic and open liver surgery.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="n display-italic">ii.</div>
+            <div>
+              <h3>Intraoperative Surface Acquisition</h3>
+              <p>Comparing contact-based digitization and noncontact depth sensing for model-to-patient registration of soft tissue.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="n display-italic">iii.</div>
+            <div>
+              <h3>Deformation Correction</h3>
+              <p>Physics-informed registration pipelines that align preoperative imaging with the intraoperative organ.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="n display-italic">iv.</div>
+            <div>
+              <h3>Headset Validation</h3>
+              <p>Quantitative benchmarks for hologram drift, eye-tracking angular error, marker tracking, and depth-camera precision.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— PUBLICATIONS ——— -->
+  <section class="s" id="publications">
+    <div class="shell">
+      <div class="head reveal">
+        <div class="num mono">§ 02 &nbsp;· &nbsp;Publications</div>
+        <h2 class="display">Peer-reviewed <em>work.</em></h2>
+      </div>
+
+      <div class="pub-tabs reveal" role="tablist">
+        <button class="active" data-filter="all">All <span class="count">13</span></button>
+        <button data-filter="journal">Journal <span class="count">7</span></button>
+        <button data-filter="conf">Conference <span class="count">5</span></button>
+        <button data-filter="patent">Patent <span class="count">1</span></button>
+      </div>
+
+      <ol class="pub-list reveal">
+
+        <li class="pub" data-cat="journal under">
+          <div class="pn">J · 01</div>
+          <div class="body">
+            <div class="title">Mixed Reality Surgical Navigation System for Liver Interventions with Comprehensive Validation using Subsurface Target Localization</div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Dingjie Su, Michael I. Miga</div>
+            <div class="venue">IEEE Transactions on Biomedical Engineering · 2025</div>
+          </div>
+          <div class="tag under">Under Review</div>
+        </li>
+
+        <li class="pub" data-cat="journal">
+          <div class="pn">J · 02</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/1.JMI.12.5.055001" target="_blank" rel="noopener">
+                Comprehensive mixed reality surgical navigation system for liver surgery ↗
+              </a>
+            </div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Michael I. Miga</div>
+            <div class="venue">Journal of Medical Imaging · 12(5), 055001 · October 2025</div>
+          </div>
+          <div class="tag journal">Journal</div>
+        </li>
+
+        <li class="pub" data-cat="journal">
+          <div class="pn">J · 03</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/1.JMI.11.2.025001" target="_blank" rel="noopener">
+                Comparison study of intraoperative surface acquisition methods on registration accuracy for soft-tissue surgical navigation ↗
+              </a>
+            </div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Winona L. Richey, Michael I. D'Angelica, Alice C. Wei, T. Peter Kingham, Frankangel Servin, Kyvia Pereira, Sunil K. Geevarghese, William R. Jarnagin, Michael I. Miga</div>
+            <div class="venue">Journal of Medical Imaging · 11(2), 025001 · March 2024</div>
+          </div>
+          <div class="tag journal">Journal</div>
+        </li>
+
+        <li class="pub" data-cat="journal under">
+          <div class="pn">J · 04</div>
+          <div class="body">
+            <div class="title">ReSNA: A Robotic-Enabled Surgical Navigation Assistant for Breast-Conserving Surgery</div>
+            <div class="authors">Zixuan Liu, <span class="me">Bowen Xiang</span>, Jon S. Heiselman, Jie Ying Wu, Ingrid M. Meszoely, Michael I. Miga</div>
+            <div class="venue">IEEE Robotics and Automation Letters (RA-L) · 2026</div>
+          </div>
+          <div class="tag under">Under Review</div>
+        </li>
+
+        <li class="pub" data-cat="journal under">
+          <div class="pn">J · 05</div>
+          <div class="body">
+            <div class="title">Insertion Network for Image Sequence Correspondence</div>
+            <div class="authors">Dingjie Su, <span class="me">Bowen Xiang</span>, Weixiang Hong, Benoit M. Dawant, Bennett A. Landman</div>
+            <div class="venue">Journal of Medical Imaging · 2026</div>
+          </div>
+          <div class="tag under">Under Review</div>
+        </li>
+
+        <li class="pub" data-cat="journal under">
+          <div class="pn">J · 06</div>
+          <div class="body">
+            <div class="title">Clinical Evaluation of Deformation-Corrected Image Guidance for Laparoscopic Liver Surgery: A Prospective Blinded Randomized Study</div>
+            <div class="authors">Jon S. Heiselman, Winona R. Nice, Kyvia Pereira, <span class="me">Bowen Xiang</span>, Frankangel Servin, Adrian Chu, Marion Liu, Kevin C. Soares, Alice C. Wei, T. Peter Kingham, William R. Jarnagin, Michael I. Miga</div>
+            <div class="venue">Surgery · 2025</div>
+          </div>
+          <div class="tag under">Under Review</div>
+        </li>
+
+        <li class="pub" data-cat="journal">
+          <div class="pn">J · 07</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1101/2020.02.07.939504" target="_blank" rel="noopener">
+                A fast genetically encoded fluorescent sensor for faithful in vivo acetylcholine detection in mice, fish, worms and flies ↗
+              </a>
+            </div>
+            <div class="authors">P. M. Borden, P. Zhang, A. V. Shivange, J. S. Marvin, J. Cichon, et al. (incl. <span class="me">B. Xiang</span>)</div>
+            <div class="venue">bioRxiv · 2020</div>
+          </div>
+          <div class="tag journal">Journal</div>
+        </li>
+
+        <li class="pub" data-cat="conf">
+          <div class="pn">C · 01</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/12.3087701" target="_blank" rel="noopener">
+                Robotic stereo-camera system with SAM 2 for multiview surface reconstruction of anatomical structures in surgery ↗
+              </a>
+            </div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Zixuan Liu, Michael I. Miga</div>
+            <div class="venue">Proc. SPIE 13927, Medical Imaging 2026: Image-Guided Procedures · April 2026</div>
+          </div>
+          <div class="tag conf">Conference</div>
+        </li>
+
+        <li class="pub" data-cat="conf">
+          <div class="pn">C · 02</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/12.3048616" target="_blank" rel="noopener">
+                Surgical navigation system for liver surgery based on HoloLens® 2 ↗
+              </a>
+            </div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Michael I. Miga</div>
+            <div class="venue">Proc. SPIE 13408, Medical Imaging 2025: Image-Guided Procedures · April 2025</div>
+          </div>
+          <div class="tag conf">Conference</div>
+        </li>
+
+        <li class="pub" data-cat="conf">
+          <div class="pn">C · 03</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/12.2655971" target="_blank" rel="noopener">
+                Comparison study of intraoperative surface acquisition methods for surgical navigation ↗
+              </a>
+            </div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Winona L. Richey, William R. Jarnagin, Michael I. Miga</div>
+            <div class="venue">Proc. SPIE 12466, Medical Imaging 2023: Image-Guided Procedures · April 2023</div>
+          </div>
+          <div class="tag conf">Conference</div>
+        </li>
+
+        <li class="pub" data-cat="conf">
+          <div class="pn">C · 04</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/12.3087843" target="_blank" rel="noopener">
+                Toward a surgical clip-based registration approach for aligning pathology data to tumor bed using mixed reality ↗
+              </a>
+            </div>
+            <div class="authors">Richie Dix, Mays Neiroukh, <span class="me">Bowen Xiang</span>, Jie Ying Wu, Michael C. Topf, Ingrid M. Meszoely, Jon S. Heiselman, Michael I. Miga, Kyvia Pereira</div>
+            <div class="venue">Proc. SPIE 13927, Medical Imaging 2026: Image-Guided Procedures · April 2026</div>
+          </div>
+          <div class="tag conf">Conference</div>
+        </li>
+
+        <li class="pub" data-cat="conf">
+          <div class="pn">C · 05</div>
+          <div class="body">
+            <div class="title">
+              <a href="https://doi.org/10.1117/12.3087859" target="_blank" rel="noopener">
+                PyTK-SNAP: a Python-based visualization framework for interactive medical image analysis ↗
+              </a>
+            </div>
+            <div class="authors">Dingjie Su, <span class="me">Bowen Xiang</span>, Benoit M. Dawant</div>
+            <div class="venue">Proc. SPIE 13927, Medical Imaging 2026: Image-Guided Procedures · April 2026</div>
+          </div>
+          <div class="tag conf">Conference</div>
+        </li>
+
+        <li class="pub" data-cat="patent">
+          <div class="pn">P · 01</div>
+          <div class="body">
+            <div class="title">Self-Contained Surgical Navigation System in Augmented Reality Head Mounted Device</div>
+            <div class="authors"><span class="me">Bowen Xiang</span>, Jon S. Heiselman, Michael I. Miga</div>
+            <div class="venue">U.S. Patent Application No. 63/757,494 · VU25032P1 · February 2025</div>
+          </div>
+          <div class="tag patent">Patent</div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ——— EXPERIENCE ——— -->
+  <section class="s" id="experience">
+    <div class="shell">
+      <div class="head reveal">
+        <div class="num mono">§ 03 &nbsp;· &nbsp;Experience</div>
+        <h2 class="display">Trajectory &amp; <em>training.</em></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="when"><strong>2025 —</strong> Present</div>
+          <div>
+            <h3>Postdoctoral <em>Researcher</em></h3>
+            <div class="where">Vanderbilt University · Department of Biomedical Engineering · PI: Michael I. Miga</div>
+            <ul>
+              <li>Technical evaluation of next-generation mixed-reality headsets (Magic Leap 2) — hologram stability, depth sensing precision, eye tracking accuracy, and marker tracking — to determine clinical suitability.</li>
+              <li>Migrating the surgical navigation system to advanced MR platforms to enhance real-time performance, tracking robustness, and drive the technology closer to intraoperative implementation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="when"><strong>2020 — 2025</strong></div>
+          <div>
+            <h3>Doctoral <em>Research</em></h3>
+            <div class="where">Vanderbilt University · Ph.D. Biomedical Engineering · Advisor: Michael I. Miga</div>
+            <ul>
+              <li>Developed a comprehensive mixed-reality surgical navigation system for precision liver surgery integrating real-time tool tracking, deformation correction, and dynamic 3D anatomical visualization.</li>
+              <li>Built an AR system on HoloLens 2 for in situ visualization of live ultrasound with retroreflective inside-out probe tracking.</li>
+              <li>Designed and validated a holographic four-panel display mimicking traditional surgical navigation layouts.</li>
+              <li>Compared noncontact and contact-based digitization approaches for soft-tissue model-to-physical alignment.</li>
+              <li>Participated in the 2024 Space-Edge Accelerator Program (Blue Origin · Space Foundation) exploring biomedical innovations for space commercialization.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="when"><strong>2019 — 2020</strong></div>
+          <div>
+            <h3>Capstone · <em>Watkins Lab</em></h3>
+            <div class="where">University of Virginia · Department of Oncology · Advisor: William Tyler Watkins</div>
+            <ul>
+              <li>Built and validated a real-time dose calculator providing immediate dose-volume estimates to streamline clinical decision-making.</li>
+              <li>Developed MATLAB scripts applying HGDS/LDS functions at target boundaries for accurate dose-volume histogram estimations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="when"><strong>2018 — 2019</strong></div>
+          <div>
+            <h3>Undergraduate Researcher · <em>Zhu Lab</em></h3>
+            <div class="where">University of Virginia · Department of Pharmacology · Advisor: J. Julius Zhu</div>
+            <ul>
+              <li>Converted electron microscopy images into 3D colormaps for precise localization of neuronal excitation points.</li>
+              <li>Analyzed microscopy data with an exponential decay model, revealing ~1 µm transmission distance for ACh and DA in astrocytes and neurons.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— EDUCATION + AWARDS ——— -->
+  <section class="s">
+    <div class="shell">
+      <div class="head reveal">
+        <div class="num mono">§ 04 &nbsp;· &nbsp;Education &amp; Honors</div>
+        <h2 class="display">Degrees, <em>awards,</em> distinctions.</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="reveal">
+          <h3>Education</h3>
+          <ul>
+            <li>
+              <div>
+                <div class="lbl">Ph.D., Biomedical Engineering</div>
+                <div class="sub">Vanderbilt University · Nashville, TN</div>
+              </div>
+              <div class="yr">2020 — 2025</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">B.S., Biomedical Engineering</div>
+                <div class="sub">University of Virginia · High Distinction</div>
+              </div>
+              <div class="yr">2018 — 2020</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Biological Systems Engineering</div>
+                <div class="sub">Virginia Tech · Blacksburg, VA</div>
+              </div>
+              <div class="yr">2016 — 2018</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal" style="transition-delay:.15s;">
+          <h3>Awards &amp; Service</h3>
+          <ul>
+            <li>
+              <div>
+                <div class="lbl">Thomas R. Harris Graduate Fellowship</div>
+                <div class="sub">Vanderbilt Institute for Surgery and Engineering</div>
+              </div>
+              <div class="yr">2020</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">University Honors &amp; Dean's List</div>
+                <div class="sub">College of Engineering · UVA</div>
+              </div>
+              <div class="yr">2016 — 2020</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Reviewer · IEEE T-MRB</div>
+                <div class="sub">Transactions on Medical Robotics and Bionics</div>
+              </div>
+              <div class="yr">2026</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Reviewer · Comput. Methods Programs Biomed.</div>
+                <div class="sub">Invited Reviewer</div>
+              </div>
+              <div class="yr">2026</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Reviewer · Clinical Medical Insights</div>
+                <div class="sub">Oncology · Invited Reviewer</div>
+              </div>
+              <div class="yr">2025</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— TEACHING & TALKS ——— -->
+  <section class="s" id="teaching">
+    <div class="shell">
+      <div class="head reveal">
+        <div class="num mono">§ 05 &nbsp;· &nbsp;Teaching &amp; Talks</div>
+        <h2 class="display">Mentorship, instruction, <em>platforms.</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div class="reveal">
+          <h3>Mentoring &amp; Teaching</h3>
+          <ul>
+            <li>
+              <div>
+                <div class="lbl">VISE Summer Fellow Mentor</div>
+                <div class="sub">Mentee: Richie Dix · Vanderbilt</div>
+              </div>
+              <div class="yr">2025</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">VISE Summer Fellow Mentor</div>
+                <div class="sub">Mentee: Nathan Hammond · Vanderbilt</div>
+              </div>
+              <div class="yr">2024</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">TA · Computational Analysis in BME</div>
+                <div class="sub">University of Virginia</div>
+              </div>
+              <div class="yr">Fall 2019</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">TA · Linear Algebra I</div>
+                <div class="sub">University of Virginia</div>
+              </div>
+              <div class="yr">Spring 2019</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">TA · Calculus III</div>
+                <div class="sub">University of Virginia</div>
+              </div>
+              <div class="yr">Fall 2018</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">TA · Quantitative Cell Biology</div>
+                <div class="sub">Virginia Tech</div>
+              </div>
+              <div class="yr">Fall 2017</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal" style="transition-delay:.15s;">
+          <h3>Selected Talks</h3>
+          <ul>
+            <li>
+              <div>
+                <div class="lbl">Surgical Navigation System for Liver Surgery Based on HoloLens 2</div>
+                <div class="sub">Platform · SPIE Medical Imaging · IGPRM Conference</div>
+              </div>
+              <div class="yr">Feb 2025</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">A Comprehensive MR Surgical Navigation System for Liver Surgery</div>
+                <div class="sub">Live Demo · Nemertes Next Industry Conference · Nashville</div>
+              </div>
+              <div class="yr">Apr 2025</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Comparison Study of Intraoperative Surface Acquisition Methods</div>
+                <div class="sub">Platform · SPIE Medical Imaging · IGPRM Conference</div>
+              </div>
+              <div class="yr">Feb 2023</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Comparison Study via Tracked Intraoperative Ultrasound</div>
+                <div class="sub">VISE Research-in-Progress Seminar · Vanderbilt</div>
+              </div>
+              <div class="yr">Aug 2022</div>
+            </li>
+            <li>
+              <div>
+                <div class="lbl">Genetically-encoded acetylcholine &amp; monoamine sensors</div>
+                <div class="sub">Invited Speaker · CVCSN</div>
+              </div>
+              <div class="yr">Apr 2019</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ——— FOOTER / CONTACT ——— -->
+<footer class="site" id="contact">
+  <div class="shell">
+    <div class="grid reveal">
+      <div>
+        <div class="mono" style="color:#E8A89C; margin-bottom:24px;">§ 06 &nbsp;· &nbsp;Contact</div>
+        <h2 class="display">Open to <em>collaboration</em> on clinical translation, MR hardware, and image-guided interventions.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:bowen.xiang@vanderbilt.edu">
+          <span class="lab">Email</span>
+          <span class="val">bowen.xiang@vanderbilt.edu</span>
+        </a>
+        <a href="https://www.linkedin.com/in/bowen-xiang/" target="_blank" rel="noopener">
+          <span class="lab">LinkedIn</span>
+          <span class="val">/in/bowen-xiang</span>
+        </a>
+        <a href="tel:+18045486862">
+          <span class="lab">Phone</span>
+          <span class="val">(804) 548-6862</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span>© <span id="yr"></span> Bowen Xiang · Nashville, TN</span>
+      <span>Last updated · April 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Generate stylized point cloud in hero
+  (function () {
+    const ns = 'http://www.w3.org/2000/svg';
+    const cloud = document.getElementById('cloud');
+    if (!cloud) return;
+    // A seeded pseudo-random for reproducibility
+    let s = 42;
+    const rand = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+    const cx = 200, cy = 210;
+    // scatter points roughly in a liver-like bean shape
+    for (let i = 0; i < 260; i++) {
+      // ellipse parameters perturbed
+      const a = 120 + (rand() - 0.5) * 14;
+      const b = 76  + (rand() - 0.5) * 14;
+      const t = rand() * Math.PI * 2;
+      // concentrate density toward center by sampling two radii
+      const r = Math.sqrt(rand());
+      let x = cx + Math.cos(t) * a * r;
+      let y = cy + Math.sin(t) * b * r;
+      // lean the shape (shear for organ feel)
+      x += (y - cy) * 0.15;
+      // small irregular notch
+      if (x < cx - 30 && Math.abs(y - cy) < 18 && rand() < 0.6) continue;
+      const sz = rand() < 0.12 ? 1.8 : 0.9;
+      const alpha = 0.35 + rand() * 0.55;
+      const c = document.createElementNS(ns, 'circle');
+      c.setAttribute('cx', x.toFixed(1));
+      c.setAttribute('cy', y.toFixed(1));
+      c.setAttribute('r', sz);
+      c.setAttribute('opacity', alpha.toFixed(2));
+      cloud.appendChild(c);
+    }
+  })();
+
+  // Publication filter
+  const tabs = document.querySelectorAll('.pub-tabs button');
+  const pubs = document.querySelectorAll('.pub');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const f = t.dataset.filter;
+      pubs.forEach(p => {
+        const cats = p.dataset.cat.split(' ');
+        const show = f === 'all' || cats.includes(f);
+        p.classList.toggle('hidden', !show);
+      });
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
